@@ -7,6 +7,7 @@ public class PlayerController : BaseController
     private readonly ContactsPoller _contactsPoller;
     private readonly PlayerMoveController _playerMoveController;
     private readonly PlayerJumpController _playerJumpController;
+    private readonly MutationController _mutationController;
 
     public PlayerController(PlayerView playerView, GameModel model,
         Transform placeSpawnPlayer)
@@ -17,8 +18,11 @@ public class PlayerController : BaseController
 
         _playerMoveController = new PlayerMoveController(playerViewInstance, model, _contactsPoller);
         _playerJumpController = new PlayerJumpController(playerViewInstance, model, _contactsPoller);
+        _mutationController = new MutationController(playerViewInstance, model);
+        
         AddController(_playerMoveController);
         AddController(_playerJumpController);
+        AddController(_mutationController);
 
         UpdateManager.SubscribeToFixedUpdate(FixedUpdate);
         UpdateManager.SubscribeToUpdate(Update);
