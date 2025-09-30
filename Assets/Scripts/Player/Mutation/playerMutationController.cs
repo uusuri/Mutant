@@ -25,6 +25,7 @@ namespace Player.Mutation
             _playerModel.CurrentMutationState.UnSubscribeOnChange(OnMutationChanged);
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.J))
