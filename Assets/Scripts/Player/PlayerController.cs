@@ -1,5 +1,6 @@
 using JoostenProductions;
 using Player;
+using Player.Mutation;
 using UnityEngine;
 
 public class PlayerController : BaseController
@@ -36,6 +37,7 @@ public class PlayerController : BaseController
 
     private void Update()
     {
+        _mutationController.Update();
         _playerJumpController.Update();
     }
 
@@ -44,6 +46,7 @@ public class PlayerController : BaseController
         _contactsPoller.FixedUpdate();
         _playerMoveController.FixedUpdate();
         _playerJumpController.FixedUpdate();
+        _mutationController.FixedUpdate();
     }
 
     private PlayerView CreateView(PlayerView playerView, Transform placeSpawnPlayer)

@@ -1,6 +1,7 @@
 // using ObjectPool;
 
 using Player;
+using Player.Mutation;
 using UnityEngine;
 
 public class Root : MonoBehaviour
@@ -23,6 +24,8 @@ public class Root : MonoBehaviour
 
     [SerializeField]
     private PlayerPreset _playerPreset;
+    [SerializeField]
+    private BatPreset _batPreset;
 
     private MainController _mainController;
 
@@ -41,7 +44,7 @@ public class Root : MonoBehaviour
             return;
         }
 
-        var gameModel = new GameModel(_playerPreset)
+        var gameModel = new GameModel(_playerPreset, _batPreset)
         {
             CurrentState =
             {

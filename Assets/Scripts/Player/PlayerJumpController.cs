@@ -1,3 +1,4 @@
+using Player.Mutation;
 using UnityEngine;
 
 namespace Player
@@ -13,6 +14,7 @@ namespace Player
         private float _jumpTimer;
         private float _coyoteTimer;
         private int _airJumpsRemaining;
+        
 
         public PlayerJumpController(PlayerView view, GameModel model, ContactsPoller contactsPoller)
         {
@@ -52,6 +54,11 @@ namespace Player
 
         public void FixedUpdate()
         {
+            if (_model.CurrentMutationState.Value == MutationState.Bat)
+            {
+                _view.Rigidbody.gravityScale = 0f;
+                return;
+            }
             var canJump = (_contactsPoller.IsGrounded || _coyoteTimer > 0 || _airJumpsRemaining > 0) && _jumpTimer > 0;
         
             if (canJump && _shouldJump)

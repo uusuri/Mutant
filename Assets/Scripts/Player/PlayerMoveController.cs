@@ -1,4 +1,5 @@
 using UnityEngine;
+using Player.Mutation;
 
 namespace Player
 {
@@ -18,6 +19,8 @@ namespace Player
 
         public void FixedUpdate()
         {
+            if (_model.CurrentMutationState.Value == MutationState.Bat)
+                return;
             var xAxisInput = Input.GetAxis("Horizontal");
             var isGoSideWay = Mathf.Abs(xAxisInput) > _model.MoveThreshold;
 
