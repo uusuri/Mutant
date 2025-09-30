@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebd98888f74b018a4bd6a1adabfb7, type: 3}
   m_Name: BatPreset
   m_EditorClassIdentifier: Assembly-CSharp::Player.Mutation.BatPreset
-  flySpeed: 0
-  dashSpeed: 0
-  moveThreshold: 0
+  flySpeed: 10
+  dashSpeed: 15
+  dashTime: 0.2
+  moveThreshold: 0.1

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Player.Mutation
 {
-    public class MutationController : BaseController
+    public class PlayerMutationController : BaseController
     {
         private readonly PlayerView _view;
         private readonly PlayerModel _playerModel;
@@ -10,7 +10,7 @@ namespace Player.Mutation
 
         private bool _isBat;
 
-        public MutationController(PlayerView playerView, GameModel gameModel)
+        public PlayerMutationController(PlayerView playerView, GameModel gameModel)
         {
             _view = playerView;
             _playerModel = gameModel.CurrentPlayer;
