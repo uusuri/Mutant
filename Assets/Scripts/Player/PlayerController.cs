@@ -10,6 +10,7 @@ namespace Player
         private readonly PlayerMoveController _playerMoveController;
         private readonly PlayerJumpController _playerJumpController;
         private readonly PlayerMutationController _playerPlayerMutationController;
+        private readonly PlayerHpController _playerHpController;
 
         public PlayerController(PlayerView playerView, GameModel model,
             Transform placeSpawnPlayer)
@@ -23,12 +24,12 @@ namespace Player
             _playerMoveController = new PlayerMoveController(playerViewInstance, model, _contactsPoller);
             _playerJumpController = new PlayerJumpController(playerViewInstance, model, _contactsPoller);
             _playerPlayerMutationController = new PlayerMutationController(playerViewInstance, model);
-            var playerHpController = new PlayerHpController(model, triggerHandler); 
+            _playerHpController = new PlayerHpController(model, triggerHandler); 
         
             AddController(_playerMoveController);
             AddController(_playerJumpController);
             AddController(_playerPlayerMutationController);
-            AddController(playerHpController);
+            AddController(_playerHpController);
 
             UpdateManager.SubscribeToFixedUpdate(FixedUpdate);
             UpdateManager.SubscribeToUpdate(Update);

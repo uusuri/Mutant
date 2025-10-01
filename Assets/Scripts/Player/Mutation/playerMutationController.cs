@@ -7,6 +7,7 @@ namespace Player.Mutation
         private readonly PlayerView _view;
         private readonly PlayerModel _playerModel;
         private readonly GameModel _gameModel;
+        private readonly BatMovementController _batMovementController;
 
         private bool _isBat;
 
@@ -15,6 +16,7 @@ namespace Player.Mutation
             _view = playerView;
             _playerModel = gameModel.CurrentPlayer;
             _gameModel = gameModel;
+            _batMovementController = new BatMovementController(_view, _gameModel);
 
             _isBat = _playerModel.CurrentMutationState.Value == MutationState.Bat;
             _playerModel.CurrentMutationState.SubscribeOnChange(OnMutationChanged);
@@ -48,29 +50,10 @@ namespace Player.Mutation
 
         public void FixedUpdate()
         {
-            if (_playerModel.CurrentMutationState.Value != MutationState.Bat)
-                return;
-
-            var xAxisInput = Input.GetAxis("Horizontal");
-            var yAxisInput = Input.GetAxis("Vertical");
-
-            var isGoSideWay = Mathf.Abs(xAxisInput) > _playerModel.MoveThreshold;
-            var isGoUpDown = Mathf.Abs(yAxisInput) > _playerModel.MoveThreshold;
-
-            if (isGoSideWay)
-                _view.SpriteRenderer.flipX = xAxisInput > 0;
-
-            var newVelocityX = 0f;
-            var newVelocityY = 0f;
-
-            if (isGoSideWay)
-                newVelocityX = _gameModel.BatPreset.FlySpeed * (xAxisInput < 0 ? -1 : 1);
-
-            if (isGoUpDown)
-                newVelocityY = _gameModel.BatPreset.FlySpeed * (yAxisInput < 0 ? -1 : 1);
-
-            _view.Rigidbody.gravityScale = 0f;
-            _view.Rigidbody.linearVelocity = new Vector2(newVelocityX, newVelocityY);
+            if (_playerModel.CurrentMutationState.Value == MutationState.Bat)
+            {
+                _batMovementController.FixedUpdate();
+            }
         }
         
         private void ChangeMutationState(MutationState newState)

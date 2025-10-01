@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 2.05, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2769751fef2496487c9d5b1af8e94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerView
-  _spriteRenderer: {fileID: 5364079061559154105}
-  _collider: {fileID: 1117615726908792213}
-  _rigidbody: {fileID: 8970468717115780086}
+  spriteRenderer: {fileID: 0}
+  collider: {fileID: 0}
+  rigidbody: {fileID: 0}
   _slimeSprite: {fileID: 328416608460504537, guid: 2e5a4a4ab3f2e41fcab1c06ad8584644, type: 3}
   _snakeSprite: {fileID: -3143998276830141904, guid: 879768da16c6f4cd2ae864b8fb7fba27, type: 3}
   _batSprite: {fileID: 5688401605829130750, guid: 359ccf9948ffd40b8809603bb75c3ed2, type: 3}

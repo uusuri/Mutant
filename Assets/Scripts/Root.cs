@@ -31,7 +31,6 @@ public class Root : MonoBehaviour
 
     private void Awake()
     {
-        // Проверяем, что все необходимые компоненты назначены
         if (_playerView == null)
         {
             Debug.LogError("PlayerView is not assigned in Root component! Please assign the Slime prefab to the _playerView field in the inspector.");

@@ -108,6 +108,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/Scripts/Player/Mutation/BatPreset.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerView.cs" />
+    <Compile Include="Assets/Scripts/Player/Mutation/BatMovementController.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerModel.cs" />
     <Compile Include="Assets/Scripts/GameState.cs" />
     <None Include="/Applications/Unity/Hub/Editor/6000.2.5f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.subsystems/package.json" />

@@ -27,16 +27,20 @@ namespace Player
             if (isGoSideWay)
                 _view.SpriteRenderer.flipX = xAxisInput > 0;
 
-            var newVelocity = 0f;
+            var targetVelocityX = 0f;
 
             if (isGoSideWay &&
                 (xAxisInput > 0 || !_contactsPoller.HasLeftContacts) &&
                 (xAxisInput < 0 || !_contactsPoller.HasRightContacts))
             {
-                newVelocity = _model.WalkSpeed * (xAxisInput < 0 ? -1 : 1);
+                targetVelocityX = _model.WalkSpeed * (xAxisInput < 0 ? -1 : 1);
             }
 
-            _view.Rigidbody.linearVelocity = new Vector2(newVelocity, _view.Rigidbody.linearVelocity.y);
+            var current = _view.Rigidbody.linearVelocity;
+            var smoothingStrength = 12f;
+            var alpha = 1f - Mathf.Exp(-smoothingStrength * Time.fixedDeltaTime);
+            var smoothedX = Mathf.Lerp(current.x, targetVelocityX, alpha);
+            _view.Rigidbody.linearVelocity = new Vector2(smoothedX, current.y);
         }
     }
 }
