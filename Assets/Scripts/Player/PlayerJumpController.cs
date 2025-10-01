@@ -15,7 +15,6 @@ namespace Player
         private float _coyoteTimer;
         private int _airJumpsRemaining;
         
-
         public PlayerJumpController(PlayerView view, GameModel model, ContactsPoller contactsPoller)
         {
             _view = view;
@@ -83,7 +82,6 @@ namespace Player
             }
             _shouldJump = false;
         }
-
         private void PerformJump()
         {
             _view.Rigidbody.linearVelocity = new Vector2(_view.Rigidbody.linearVelocity.x, 0);

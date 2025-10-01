@@ -20,6 +20,9 @@ namespace Player.Mutation
 
             _isBat = _playerModel.CurrentMutationState.Value == MutationState.Bat;
             _playerModel.CurrentMutationState.SubscribeOnChange(OnMutationChanged);
+
+            // Ensure initial visuals match current state after spawn
+            ApplyMutationVisuals(_playerModel.CurrentMutationState.Value);
         }
         
         protected override void OnDispose()
@@ -71,10 +74,14 @@ namespace Player.Mutation
         private void OnMutationChanged(MutationState newState)
         {
             _isBat = newState == MutationState.Bat;
+            // Apply visuals whenever state changes (covers respawn and UI toggles)
+            ApplyMutationVisuals(newState);
+
+            // Adjust physics per state
             if (_isBat)
-            {
                 _view.Rigidbody.gravityScale = 0f;
-            }
+            else
+                _view.Rigidbody.gravityScale = _gameModel.CurrentPlayer.FallGravityScale; // restore normal gravity
         }
     }
 }

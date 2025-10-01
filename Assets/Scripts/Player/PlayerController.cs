@@ -38,7 +38,7 @@ namespace Player
         protected override void OnDispose()
         {
             UpdateManager.UnsubscribeFromFixedUpdate(FixedUpdate);
-            UpdateManager.UnsubscribeFromLateUpdate(Update);
+            UpdateManager.UnsubscribeFromUpdate(Update);
         }
 
         private void Update()
