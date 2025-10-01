@@ -1,6 +1,10 @@
-public enum MutationState
+namespace Player.Mutation
 {
-    Slime,
-    Snake,
-    Spider
+    public enum MutationState
+    {
+        Slime,
+        Snake,
+        Bat,
+        Spider
+    }
 }

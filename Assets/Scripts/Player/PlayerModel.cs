@@ -1,3 +1,5 @@
+using Player.Mutation;
+
 namespace Player
 {
     public class PlayerModel
@@ -14,6 +16,8 @@ namespace Player
         public float FallGravityScale { get; }
         public float FastFallGravityScale { get; }
         public float MaxFallSpeed { get; }
+        
+        public SubscriptionProperty<MutationState> CurrentMutationState { get; }
 
         public PlayerModel(PlayerPreset playerPreset)
         {
@@ -29,6 +33,11 @@ namespace Player
             FallGravityScale = playerPreset.FallGravityScale;
             FastFallGravityScale = playerPreset.FastFallGravityScale;
             MaxFallSpeed = playerPreset.MaxFallSpeed;
+            
+            CurrentMutationState = new SubscriptionProperty<MutationState>
+            {
+                Value = MutationState.Slime
+            };
         }
     }
 }
