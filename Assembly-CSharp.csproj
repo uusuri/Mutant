@@ -55,10 +55,12 @@
     <Compile Include="Assets/Scripts/IReadOnlySubsctiptionProperty.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" />
     <Compile Include="Assets/UpdateManager/Scripts/OverridableMonoBehaviour.cs" />
+    <Compile Include="Assets/Scripts/Player/Mutation/SpiderPreset.cs" />
     <Compile Include="Assets/UpdateManager/Scripts/Utility/Singleton.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
+    <Compile Include="Assets/Scripts/Player/Mutation/SpiderMovementController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
     <Compile Include="Assets/Scripts/GameModel.cs" />
     <Compile Include="Assets/UpdateManager/Example Scene/Scripts/ExampleEventUpdate.cs" />

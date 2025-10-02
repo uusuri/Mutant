@@ -26,6 +26,8 @@ public class Root : MonoBehaviour
     private PlayerPreset _playerPreset;
     [SerializeField]
     private BatPreset _batPreset;
+    [SerializeField]
+    private SpiderPreset _spiderPreset;
 
     private MainController _mainController;
 
@@ -43,7 +45,7 @@ public class Root : MonoBehaviour
             return;
         }
 
-        var gameModel = new GameModel(_playerPreset, _batPreset)
+        var gameModel = new GameModel(_playerPreset, _batPreset, _spiderPreset)
         {
             CurrentState =
             {

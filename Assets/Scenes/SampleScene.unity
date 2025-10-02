@@ -2120,6 +2120,7 @@ MonoBehaviour:
   _playerView: {fileID: 3503863824618998812, guid: 4d50ccd5d6957447d9c65c3370fe2c9b, type: 3}
   _playerPreset: {fileID: 11400000, guid: a982f86693909400f85e6e696654aab1, type: 2}
   _batPreset: {fileID: 11400000, guid: 3a4e8121bbf214a74a4221f72e21da3c, type: 2}
+  _spiderPreset: {fileID: 11400000, guid: 17966083d25d64af686605f51f086a16, type: 2}
 --- !u!4 &571295041
 Transform:
   m_ObjectHideFlags: 0
@@ -2410,8 +2411,8 @@ Transform:
   m_GameObject: {fileID: 706494112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7.55, y: 8.14, z: 0}
-  m_LocalScale: {x: 17.798395, y: 0.45166337, z: 1}
+  m_LocalPosition: {x: 7.55, y: 5.88, z: 0}
+  m_LocalScale: {x: 13.7, y: 0.45166337, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1499836893}
@@ -3234,7 +3235,7 @@ Transform:
   m_GameObject: {fileID: 1192252554}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: 3.18, z: 0}
+  m_LocalPosition: {x: -6.28, y: -3.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
