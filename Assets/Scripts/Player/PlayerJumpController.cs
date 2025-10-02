@@ -1,3 +1,4 @@
+using System;
 using Player.Mutation;
 using UnityEngine;
 
@@ -53,11 +54,22 @@ namespace Player
 
         public void FixedUpdate()
         {
-            if (_model.CurrentMutationState.Value == MutationState.Bat)
+            switch (_model.CurrentMutationState.Value)
             {
-                _view.Rigidbody.gravityScale = 0f;
-                return;
+                case MutationState.Bat:
+                    _view.Rigidbody.gravityScale = 0f;
+                    return;
+                case MutationState.Spider:
+                    _shouldJump = false;
+                    return;
+                case MutationState.Slime:
+                    break;
+                case MutationState.Snake:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
+
             var canJump = (_contactsPoller.IsGrounded || _coyoteTimer > 0 || _airJumpsRemaining > 0) && _jumpTimer > 0;
         
             if (canJump && _shouldJump)

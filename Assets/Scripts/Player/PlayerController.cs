@@ -23,7 +23,7 @@ namespace Player
 
             _playerMoveController = new PlayerMoveController(playerViewInstance, model, _contactsPoller);
             _playerJumpController = new PlayerJumpController(playerViewInstance, model, _contactsPoller);
-            _playerPlayerMutationController = new PlayerMutationController(playerViewInstance, model);
+            _playerPlayerMutationController = new PlayerMutationController(playerViewInstance, model, _contactsPoller);
             _playerHpController = new PlayerHpController(model, triggerHandler); 
         
             AddController(_playerMoveController);

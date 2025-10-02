@@ -312,4 +312,4 @@ MonoBehaviour:
   _slimeSprite: {fileID: 328416608460504537, guid: 2e5a4a4ab3f2e41fcab1c06ad8584644, type: 3}
   _snakeSprite: {fileID: -3143998276830141904, guid: 879768da16c6f4cd2ae864b8fb7fba27, type: 3}
   _batSprite: {fileID: -863475870946760161, guid: 90bc4741707104fed9de3680089d11c5, type: 3}
-  _spiderSprite: {fileID: 8957324059118975939, guid: 343d1450dc2404be4bc23a5ff717cda4, type: 3}
+  _spiderSprite: {fileID: -8492520969524892679, guid: 15510a1d509404f1cbbf07fb577af22f, type: 3}

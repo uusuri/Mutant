@@ -8,20 +8,21 @@ namespace Player.Mutation
         private readonly PlayerModel _playerModel;
         private readonly GameModel _gameModel;
         private readonly BatMovementController _batMovementController;
+        private readonly SpiderMovementController _spiderMovementController;
 
         private bool _isBat;
 
-        public PlayerMutationController(PlayerView playerView, GameModel gameModel)
+        public PlayerMutationController(PlayerView playerView, GameModel gameModel, ContactsPoller contacts)
         {
             _view = playerView;
             _playerModel = gameModel.CurrentPlayer;
             _gameModel = gameModel;
             _batMovementController = new BatMovementController(_view, _gameModel);
+            _spiderMovementController = new SpiderMovementController(_view, _gameModel, contacts);
 
             _isBat = _playerModel.CurrentMutationState.Value == MutationState.Bat;
             _playerModel.CurrentMutationState.SubscribeOnChange(OnMutationChanged);
 
-            // Ensure initial visuals match current state after spawn
             ApplyMutationVisuals(_playerModel.CurrentMutationState.Value);
         }
         
@@ -53,9 +54,14 @@ namespace Player.Mutation
 
         public void FixedUpdate()
         {
-            if (_playerModel.CurrentMutationState.Value == MutationState.Bat)
+            switch (_playerModel.CurrentMutationState.Value)
             {
-                _batMovementController.FixedUpdate();
+                case MutationState.Bat:
+                    _batMovementController.FixedUpdate();
+                    break;
+                case MutationState.Spider:
+                    _spiderMovementController.FixedUpdate();
+                    break;
             }
         }
         
@@ -74,14 +80,12 @@ namespace Player.Mutation
         private void OnMutationChanged(MutationState newState)
         {
             _isBat = newState == MutationState.Bat;
-            // Apply visuals whenever state changes (covers respawn and UI toggles)
             ApplyMutationVisuals(newState);
 
-            // Adjust physics per state
             if (_isBat)
                 _view.Rigidbody.gravityScale = 0f;
             else
-                _view.Rigidbody.gravityScale = _gameModel.CurrentPlayer.FallGravityScale; // restore normal gravity
+                _view.Rigidbody.gravityScale = _gameModel.CurrentPlayer.FallGravityScale;
         }
     }
 }
